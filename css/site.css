@@ -26,10 +26,28 @@ h2 {
 }
 
 h1, h2 { text-align: center; font-weight: normal; padding: 0; margin: 0; }
+h3 { color: #111; font-size: 3em; font-weight: normal; }
+h4 { font-size: 2.5em; font-weight: normal;}
+
+p { font-size: 2em;}
+
+.modal-content {
+	background-color: #2e2c28;
+	background-image: url('../images/page_bg.png');
+	background-position: top left;
+	background-repeat: repeat-x;
+}
+
+.modal-header { border-bottom: 1px solid #111; }
+.modal-footer { border-top: 1px solid #111; }
+
+.modal-footer button {
+	height: 3em;
+}
+
+.countdown { min-height: 180px; }
 
 .allegiance h1 { font-size: 4em; }
-
-h3 { color: #111; font-size: 3em; font-weight: normal; }
 
 .btn {
 	display:table-cell;
@@ -53,6 +71,15 @@ h3 { color: #111; font-size: 3em; font-weight: normal; }
 .btn:hover {
 	-webkit-box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, 0.20);
 	box-shadow: inset 0px 0px 10px 10px rgba(0, 0, 0, 0.20);
+}
+
+.btn[disabled] {
+	opacity: 0.5;
+}
+
+.btn[disabled]:hover {
+	-webkit-box-shadow: inset 0px 0px 6px 6px rgba(0, 0, 0, 0.15);
+	box-shadow: inset 0px 0px 6px 6px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary {
@@ -86,13 +113,28 @@ h3 { color: #111; font-size: 3em; font-weight: normal; }
 	box-shadow: inset 0px 0px 6px 6px rgba(0, 0, 0, 0.15);
 	*/
 	border: 1px solid #000;
+	transition: height 2s;
+	-webkit-transition: height 2s; /* Safari */
 }
 #bar_cthulhu {
 	background-color: #330;
 	width: 100%;
+	height: 1px;
 }
 
 #bar_human {
 	background-color: #630;
 	width: 100%;
+	height: 1px;
+}
+
+.cthuhulu-badge {
+	display: block;
+	float: left;
+	background: transparent url('../images/header.png') no-repeat;
+	background-position: -396px 0;
+	background-size: 500px;
+	width: 100px;
+	height: 200px;
+	margin: 2em 2em 0 0;
 }

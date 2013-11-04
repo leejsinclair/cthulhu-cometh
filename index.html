@@ -63,16 +63,16 @@
         </div>
 
         <div class="col-md-6 text-center">
-          <h3>Choose your allegiance</h3>
+          <h3>Choose your side</h3>
           <div class="row">
             <div class="col-md-5">
-              <button class="btn btn-primary btn-block vote-button" data-for-who="cthulhu">
+              <button class="btn btn-primary btn-block vote-button" data-for-who="cthulhu" data-toggle="modal" data-target="#sideCthuhulu">
                 Cthulhu
                 <span>Attack<br />humans</span>
               </button>
             </div>
             <div class="col-md-5 col-md-offset-1">
-              <button class="btn btn-info btn-block vote-button" data-for-who="human">
+              <button class="btn btn-info btn-block vote-button" data-for-who="human" data-toggle="modal" data-target="#sideHuman">
                 Human
                 <span>Attack<br />Cthulhu</span>
               </button>
@@ -92,6 +92,69 @@
 
 
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="sideCthuhulu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">You have chosen</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-md-3">
+                <div class="cthuhulu-badge"></div>
+              </div>
+              <div class="col-md-9">
+                <p>To side with the legions vast.</p>
+                <p>You hope that Cthulhu will betow upon you ancient wisdom, oh and spare your life in return for your loyalty.</p>
+                <p>
+                  <a href="javascript:shareFacebook();" class="pull-right"><img src="images/facebook.png" /></a>
+                  <a href="javascript:shareTwitter();" class="pull-right"><img src="images/twitter.png" /></a>
+                </p>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-block btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="sideHuman" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">You have chosen</h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-md-3">
+                <div class="cthuhulu-badge"></div>
+              </div>
+              <div class="col-md-9">
+                <p>To side with humanity</p>
+                <p>Cthulhu is strong but humanity is tronger, you hope.</p>
+                <p>
+                  <a href="javascript:shareFacebook();" class="pull-right"><img src="images/facebook.png" /></a>
+                  <a href="javascript:shareTwitter();" class="pull-right"><img src="images/twitter.png" /></a>
+                </p>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-block btn-info" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <p style="padding-top:13000px">&nbsp;</p>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -158,11 +221,9 @@
 
     function vote( forWho ) {
       sendVote( forWho );
-      promptShare();
     }
 
     $('.vote-button').click( function(){
-      debugger;
       var forWho = $(this).attr('data-for-who');
       if( forWho.length>0 ) {
         vote( forWho );
