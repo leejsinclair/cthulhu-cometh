@@ -22,15 +22,15 @@
       </header>
       <div class="row countdown">
         <div class="col-md-8 col-md-offset-2">
-          <div class="col-md-3"><h1 id="days"></h1></div>
-          <div class="col-md-3"><h1 id="hours"></h1></div>
-          <div class="col-md-3"><h1 id="minutes"></h1></div>
-          <div class="col-md-3"><h1 id="seconds"></h1></div>
+          <div class="col-md-3 col-sm-3 col-xs-6"><h1 id="days"></h1></div>
+          <div class="col-md-3 col-sm-3 col-xs-6"><h1 id="hours"></h1></div>
+          <div class="col-md-3 col-sm-3 hidden-xs"><h1 id="minutes"></h1></div>
+          <div class="col-md-3 col-sm-3 hidden-xs"><h1 id="seconds"></h1></div>
 
-          <div class="col-md-3"><h2>days</h2></div>
-          <div class="col-md-3"><h2>hours</h2></div>
-          <div class="col-md-3"><h2>minutes</h2></div>
-          <div class="col-md-3"><h2>seconds</h2></div>
+          <div class="col-md-3 col-sm-3 col-xs-6"><h2>days</h2></div>
+          <div class="col-md-3 col-sm-3 col-xs-6"><h2>hours</h2></div>
+          <div class="col-md-3 col-sm-3 hidden-xs"><h2>minutes</h2></div>
+          <div class="col-md-3 col-sm-3 hidden-xs"><h2>seconds</h2></div>
         </div>
       </div>
       <div class="row allegiance">
@@ -38,13 +38,13 @@
         <div class="col-md-6 text-center">
           <h3 id="chooseHeading">Choose your side</h3>
           <div class="row" id="chooseContent">
-            <div class="col-md-5">
+            <div class="col-md-5 col-sm-6 col-xs-6">
               <button class="btn btn-primary btn-block vote-button" data-for-who="cthulhu" data-toggle="modal" data-target="#sideCthuhulu">
                 Cthulhu
                 <span>Attack<br />humans</span>
               </button>
             </div>
-            <div class="col-md-5 col-md-offset-1">
+            <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-6">
               <button class="btn btn-info btn-block vote-button" data-for-who="human" data-toggle="modal" data-target="#sideHuman">
                 Human
                 <span>Attack<br />Cthulhu</span>
@@ -65,28 +65,28 @@
 
         <div class="col-md-6">
           <!-- start: bar graph //-->
-          <div class="col-md-5">
+          <div class="col-md-5 col-sm-5 col-offset-sm-1 col-xs-6">
             <div class="bar_container">
               <div id="bar_cthulhu"></div>
             </div>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-5 col-sm-5 col-xs-6">
             <div class="bar_container">
               <div id="bar_human"></div>
             </div>
           </div>
           <!-- end: bar graph //-->
           <!-- start: bar graph //-->
-          <div class="col-md-5 text-center">
+          <div class="col-md-5  col-sm-5 col-offset-sm-1 text-center col-xs-6">
             <h2>Cthuhulu</h2>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-5 col-sm-5 col-xs-6">
             <h2>Human</h2>
           </div>
-          <div class="col-md-5 text-center">
+          <div class="col-md-5 col-sm-5 text-center col-xs-6">
             <h1 div id="counter_cthulhu"></h1>
           </div>
-          <div class="col-md-5">
+          <div class="col-md-5 col-sm-5 col-xs-6">
             <h1 div id="counter_human"></h1>
           </div>
           <!-- end: bar graph //-->

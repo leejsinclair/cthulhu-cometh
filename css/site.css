@@ -4,16 +4,9 @@ body, html {
 }
 body {
 	background-color: #2e2c28;
-	background-image: url('../images/page_bg.png');
-	background-position: top left;
-	background-repeat: repeat-x;
-	background: -moz-linear-gradient(top,  rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.2)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+	background-position: 0 25%, top left;
+	background-repeat: no-repeat, repeat;
+	background-image: url('../images/tenticles.png'), url('../images/cthulhu-website-background.png');
 
 }
 header {
@@ -157,8 +150,5 @@ a { color: #8B4601;}
 }
 
 .footer {
-	position: absolute;
-	width:100%;
-	left:0;
-	top: 1070px;
+	
 }
