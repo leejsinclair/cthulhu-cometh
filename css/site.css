@@ -7,6 +7,14 @@ body {
 	background-image: url('../images/page_bg.png');
 	background-position: top left;
 	background-repeat: repeat-x;
+	background: -moz-linear-gradient(top,  rgba(0,0,0,0.2) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.2)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
 }
 header {
 	margin-top: 2em;
@@ -30,6 +38,11 @@ h3 { color: #111; font-size: 3em; font-weight: normal; }
 h4 { font-size: 2.5em; font-weight: normal;}
 
 p { font-size: 2em;}
+a { color: #8B4601;}
+
+.text-center {
+	text-align: center;
+}
 
 .modal {
 	outline-color: #222;
