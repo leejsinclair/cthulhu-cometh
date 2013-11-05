@@ -310,6 +310,12 @@
       disableVoting( myVote );
     }
 
+    // Firebase integration
+    var countRef = new Firebase('cthulhu-cometh.firebaseio.com/counts');
+    dataRef.on('value', function( counts ) {
+      updateGraph( calculateHeights(counts, 200), graphEls );
+    });
+
   })();
 
     </script>
