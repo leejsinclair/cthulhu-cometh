@@ -83,10 +83,10 @@
             <h2>Human</h2>
           </div>
           <div class="col-md-5 text-center">
-            <h1>99</h1>
+            <h1 div id="counter_cthulhu"></h1>
           </div>
           <div class="col-md-5">
-            <h1>66</h1>
+            <h1 div id="counter_human"></h1>
           </div>
           <!-- end: bar graph //-->
         </div>
@@ -158,7 +158,16 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <p style="padding-top:13000px">&nbsp;</p>
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>About Cthulhu</h1>
+            <center><iframe width="640" height="360" src="//www.youtube.com/embed/amCxbVG8QUs?rel=0" frameborder="0" allowfullscreen></iframe></center>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -223,6 +232,7 @@
     var domEls = { 'days': $("#days"), 'hours': $("#hours"), 'minutes': $("#minutes"), 'seconds': $("#seconds") };
     var graphEls = { 'cthulhu': $("#bar_cthulhu"), 'human': $("#bar_human") };
     var updateInterval;
+    var countRef;
 
     // Timer functions
     function calculateDifferences( proposedDate ) {
@@ -249,7 +259,7 @@
     // Data functions
     function calculateHeights( counts, maxHeight ) {
       var max = Math.max( counts.cthulhu, counts.human );
-      var scale = parseInt( maxHeight / max, 10 );
+      var scale = parseInt( maxHeight / Math.max(max,1), 10 );
       var ret = { 'cthulhu': counts.cthulhu*scale, 'human': counts.human*scale };
       return ret;
     }
@@ -263,9 +273,26 @@
 
     updateGraph( calculateHeights(votes, 200), graphEls );
 
+    function updateGraphLabels( data ) {
+      if( data.cthulhu ) {
+        $('#counter_cthulhu').html( data.cthulhu );
+      }
+
+      if( data.human ) {
+        $('#counter_human').html( data.human );
+      }
+    }
+
     function sendVote( forWho ) {
       cookie.set('cthulhuVote', forWho );
-      console.log( 'voted', forWho );
+      //console.log( 'voted', forWho );
+      if( forWho && countRef ) {
+        // Update votes
+        countRef.transaction( function( counts ) {
+          counts[forWho] = counts[forWho]+1;
+          return counts;
+        });
+      }
     }
 
     /**
@@ -311,9 +338,11 @@
     }
 
     // Firebase integration
-    var countRef = new Firebase('cthulhu-cometh.firebaseio.com/counts');
-    dataRef.on('value', function( counts ) {
-      updateGraph( calculateHeights(counts, 200), graphEls );
+    countRef = new Firebase('cthulhu-cometh.firebaseio.com/counts');
+    countRef.on('value', function( counts ) {
+      var data = counts.val();
+      updateGraph( calculateHeights( data, 200), graphEls );
+      updateGraphLabels( data );
     });
 
   })();
