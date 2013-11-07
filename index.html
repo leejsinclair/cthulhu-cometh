@@ -35,16 +35,16 @@
       </div>
       <div class="row allegiance">
 
-        <div class="col-md-6 text-center">
+        <div class="col-md-12 text-center" id="chooseSide">
           <h3 id="chooseHeading">Choose your side</h3>
-          <div class="row" id="chooseContent">
-            <div class="col-md-5 col-sm-6 col-xs-6">
+          <div class="row showBeforeVote" id="chooseContent">
+            <div class="col-md-6 col-sm-6 col-xs-6">
               <button class="btn btn-primary btn-block vote-button" data-for-who="cthulhu" data-toggle="modal" data-target="#sideCthuhulu">
                 Cthulhu
                 <span>Attack<br />humans</span>
               </button>
             </div>
-            <div class="col-md-5 col-md-offset-1 col-sm-6 col-xs-6">
+            <div class="col-md-6 col-sm-6 col-xs-6">
               <button class="btn btn-info btn-block vote-button" data-for-who="human" data-toggle="modal" data-target="#sideHuman">
                 Human
                 <span>Attack<br />Cthulhu</span>
@@ -52,9 +52,9 @@
             </div>
           </div>
 
-          <div class="row">
-            <div class="col-md-10">
-              <p><a href="https://dotmaleny.wufoo.com/forms/qxzz5r60gouivd/" onclick="window.open(this.href,  null, 'height=259, width=680, toolbar=0, location=0, status=1, scrollbars=1, resizable=1'); return false">Let me know who prevails</a></p>
+          <div class="row showBeforeVote">
+            <div class="col-md-12">
+              <p><a href="https://dotmaleny.wufoo.com/forms/qxzz5r60gouivd/" onclick="window.open(this.href,  null, 'height=259, width=680, toolbar=0, location=0, status=1, scrollbars=1, resizable=1'); return false">Email me the results</a></p>
               <h2>Build your legion</h2> 
               <a href="javascript:share.facebook();"><img src="images/facebook.png" /></a>
               <a href="javascript:share.twitter();"><img src="images/twitter.png" /></a>
@@ -63,33 +63,46 @@
 
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12 showAfterVote" id="results" style="display:none">
           <!-- start: bar graph //-->
-          <div class="col-md-5 col-sm-5 col-offset-sm-1 col-xs-6">
-            <div class="bar_container">
-              <div id="bar_cthulhu"></div>
+          <table border="0" cellpadding="20" class="table" width="100%">
+            <tr>
+              <td valign="bottom" align="center" width="50%">
+                <div id="bar_cthulhu"></div>
+              </td>
+              <td valign="bottom" align="center" width="50%">
+                <div id="bar_human"></div>
+              </td>
+            </tr>
+
+            <tr>
+              <td valign="bottom" align="center" width="50%">
+                <h2>Cthuhulu</h2>
+              </td>
+              <td valign="bottom" align="center" width="50%">
+                <h2>Human</h2>
+              </td>
+            </tr>
+
+            <tr>
+              <td valign="bottom" align="center" width="50%">
+                <h1 div id="counter_cthulhu"></h1>
+              </td>
+              <td valign="bottom" align="center" width="50%">
+                <h1 div id="counter_human"></h1>
+              </td>
+            </tr>
+          </table>
+          <!-- end: bar graph //-->
+
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p><a href="https://dotmaleny.wufoo.com/forms/qxzz5r60gouivd/" onclick="window.open(this.href,  null, 'height=259, width=680, toolbar=0, location=0, status=1, scrollbars=1, resizable=1'); return false">Email me the results</a></p>
+              <h2>Build your legion</h2> 
+              <a href="javascript:share.facebook();"><img src="images/facebook.png" /></a>
+              <a href="javascript:share.twitter();"><img src="images/twitter.png" /></a>
             </div>
           </div>
-          <div class="col-md-5 col-sm-5 col-xs-6">
-            <div class="bar_container">
-              <div id="bar_human"></div>
-            </div>
-          </div>
-          <!-- end: bar graph //-->
-          <!-- start: bar graph //-->
-          <div class="col-md-5  col-sm-5 col-offset-sm-1 text-center col-xs-6">
-            <h2>Cthuhulu</h2>
-          </div>
-          <div class="col-md-5 col-sm-5 col-xs-6">
-            <h2>Human</h2>
-          </div>
-          <div class="col-md-5 col-sm-5 text-center col-xs-6">
-            <h1 div id="counter_cthulhu"></h1>
-          </div>
-          <div class="col-md-5 col-sm-5 col-xs-6">
-            <h1 div id="counter_human"></h1>
-          </div>
-          <!-- end: bar graph //-->
         </div>
 
       </div>
@@ -287,7 +300,7 @@
     }
 
     function sendVote( forWho ) {
-      cookie.set('cthulhuVote', forWho );
+      cookie.set('cthulhuVote', forWho, 30 );
       //console.log( 'voted', forWho );
       if( forWho && countRef ) {
         // Update votes
@@ -312,6 +325,8 @@
     function disableVoting( votedFor ) {
       var heading;
       $('.vote-button').attr('disabled','disabled');
+      $('.showAfterVote').css('display','block');
+      $('.showBeforeVote').css('display','none');
       switch( votedFor ) {
         case 'cthulhu':
           heading = 'You have sided with Cthulhu';
@@ -347,7 +362,6 @@
       updateGraph( calculateHeights( data, 200), graphEls );
       updateGraphLabels( data );
     });
-
   })();
 
     </script>
