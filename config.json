@@ -1,0 +1,26 @@
+{
+  "vars": {
+    "@brand-primary": "#333300",
+    "@brand-danger": "#663300",
+    "@body-bg": "#2e2c28",
+    "@text-color": "#6e6c6a",
+    "@link-color": "#663300",
+    "@link-hover-color": "lighten(@link-color,10%)",
+    "@font-family-sans-serif": "'Fondamento', cursive",
+    "@font-family-serif": "'Amarante', cursive"
+  },
+  "css": [
+    "print.less",
+    "grid.less",
+    "tooltip.less",
+    "popovers.less",
+    "modals.less",
+    "responsive-utilities.less",
+    "component-animations.less"
+  ],
+  "js": [
+    "tooltip.js",
+    "popover.js",
+    "transition.js"
+  ]
+}
